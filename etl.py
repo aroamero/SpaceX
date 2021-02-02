@@ -4,10 +4,7 @@
 # - We only need the following data:
 #     - mission name
 #     - mission patch image
-#     - launch year
-#     - launch success
-#         - Launch failure details if launch was unsucessful
-#     - Payload Type
+#     - mission ID
 # - Load Data into CSV
 
 import requests
@@ -35,11 +32,7 @@ def transform_data(launch_data):
         for a, b, c in zip(mission_id, mission_names, mission_image):
            
             writer = csv.writer(f)
-            writer.writerow([a, b, c])
-
-    print(len(mission_names))
-    print(len(mission_image))
-    print(len(mission_id))    
+            writer.writerow([a, b, c])   
 
 # This is where we run the code
 result = get_launch_data('https://api.spacexdata.com/v3/launches')
